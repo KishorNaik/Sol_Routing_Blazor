@@ -1,0 +1,57 @@
+﻿@page "/"
+@inject NavigationManager navigationManager
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@{
+
+    int id = 10;
+
+    string demoUrl = $"/mydemo/demo2/{id.ToString()}";
+
+}
+
+@code{
+
+    private void OnRedirectToDemo3()
+    {
+        navigationManager.NavigateTo("/mydemo/demo3");
+    }
+
+    private void OnRedirectToDemo3Parameter()
+    {
+        string parameter = "Kishor Naik";
+        navigationManager.NavigateTo($"/mydemo/demo3/{parameter}");
+    }
+
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 p-3">
+            <a href="/mydemo/demo1" class="btn btn-danger">Demo1</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-3">
+            <a href="/mydemo/demo2" class="btn btn-danger">Demo2</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-3">
+            <a href="@demoUrl" class="btn btn-danger">Demo2 - Parameter</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-3">
+            <button class="btn btn-danger" @onclick="OnRedirectToDemo3">Demo 3</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 p-3">
+            <button class="btn btn-danger" @onclick="OnRedirectToDemo3Parameter">Demo 3 - Parameter</button>
+        </div>
+    </div>
+</div>

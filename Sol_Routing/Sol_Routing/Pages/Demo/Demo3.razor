@@ -1,0 +1,11 @@
+﻿@page "/mydemo/demo3"
+@page "/mydemo/demo3/{text}"
+<h3>Demo3</h3>
+
+<h4>@text</h4>
+
+@code {
+
+    [Parameter]
+    public String text { get; set; }
+}
